@@ -1,4 +1,3 @@
-// const { ObjectId } = require("bson");
 const { Schema, Types } = require("mongoose");
 const dateFormat = require("../utils/dateformat");
 
@@ -24,7 +23,6 @@ const reactionSchema = new Schema(
       type: Date,
       default: Date.now,
       get: (createdAtVal) => dateFormat(createdAtVal),
-      // moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a"),
     },
   },
   {
@@ -34,7 +32,5 @@ const reactionSchema = new Schema(
     id: false,
   }
 );
-
-module.exports = reactionSchema;
 
 module.exports = reactionSchema;

@@ -1,17 +1,10 @@
-// const Thought = require("../models/thought");
-// const User = require("../models/user");
-// const Reaction = require("../models/reaction");
 const { User, Thought } = require("../models");
 
 const thoughtController = {
   // retrieve all thoughts
   getAllThoughts(req, res) {
     Thought.find()
-      //   .populate({
-      //     path: "user",
-      //     select: "-__v",
-      //   })
-      //   .select("-__v")
+
       .sort({ _id: -1 })
       .then((dbThoughtData) => res.json(dbThoughtData))
       .catch((err) => {
@@ -41,12 +34,7 @@ const thoughtController = {
   // retrieve thought by ID
   getThoughtById({ params }, res) {
     Thought.findOne({ _id: params.id })
-      //   .populate({
-      //     path: "user",
-      //     select: "-__v",
-      //   })
 
-      //   .select("-__v")
       .then((dbThoughtData) => res.json(dbThoughtData))
       .catch((err) => {
         console.log(err);
